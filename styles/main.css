@@ -1253,25 +1253,34 @@ button {
   border: 3px solid var(--deep-red);
   box-shadow: 14px 14px 0px var(--deep-red);
   border-radius: 2px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-form-title {
   font-family: var(--font-display-folk);
-  font-size: 1.85rem;
+  font-size: clamp(1.5rem, 3.5vw, 1.85rem);
   margin-bottom: 1.5rem;
   color: var(--deep-red);
+  line-height: 1.1;
 }
 
 .inquiry-form {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .form-group label {
@@ -1280,6 +1289,7 @@ button {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--deep-red);
+  display: block;
 }
 
 .form-control {
@@ -1291,6 +1301,11 @@ button {
   color: var(--deep-red);
   border-radius: 2px;
   transition: var(--transition-fast);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
 }
 
 .form-control:focus {
@@ -1300,10 +1315,25 @@ button {
   box-shadow: 0 0 0 2px var(--bright-orange);
 }
 
+select.form-control {
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 85px;
+}
+
 .form-row-dual {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-submit-btn {
@@ -1323,6 +1353,10 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .form-submit-btn:hover {
@@ -2161,17 +2195,31 @@ button {
 
   /* ── CONTACT ── */
   .contact-section { padding: 3.5rem 0; }
-  .contact-headline { font-size: clamp(2.5rem, 9vw, 4rem); }
+  .contact-headline { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .contact-subheading { font-size: 1.1rem; }
   .contact-form-box {
     padding: 1.75rem 1.25rem;
     box-shadow: 8px 8px 0px var(--deep-red);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .form-row-dual {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
   .channel-btn {
     width: 100%;
     justify-content: center;
-    font-size: 0.85rem;
+    font-size: clamp(0.78rem, 2.5vw, 0.88rem);
     padding: 0.9rem 1rem;
-    word-break: break-all;
+    word-break: break-word;
+    text-align: center;
+  }
+  .contact-location-badge {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   /* ── PACKAGES ── */
@@ -2324,25 +2372,55 @@ button {
 
   /* ── CONTACT ── */
   .contact-section { padding: 3rem 0; }
-  .contact-headline { font-size: clamp(2rem, 10vw, 3rem); }
-  .contact-subheading { font-size: 1rem; letter-spacing: 0.1em; }
+  .contact-headline { font-size: clamp(1.85rem, 8vw, 2.6rem); line-height: 1.05; }
+  .contact-subheading { font-size: 0.95rem; letter-spacing: 0.08em; }
   .contact-form-box {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 0.85rem;
     box-shadow: 6px 6px 0px var(--deep-red);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-width: 2.5px;
   }
-  .contact-form-title { font-size: 1.5rem; }
+  .contact-form-title { font-size: 1.35rem; margin-bottom: 1rem; }
+  .inquiry-form { gap: 1rem; width: 100%; }
+  .form-group { gap: 0.35rem; width: 100%; }
+  .form-group label { font-size: 0.72rem; letter-spacing: 0.15em; }
   .channel-btn {
     width: 100%;
     justify-content: center;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     padding: 0.85rem 0.75rem;
     gap: 0.6rem;
+    word-break: break-word;
+    text-align: center;
   }
-  .form-row-dual { grid-template-columns: 1fr; }
+  .form-row-dual {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
   /* Prevent iOS Safari auto-zoom on inputs */
   .form-control {
     font-size: 16px;
     padding: 0.75rem 0.85rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .form-submit-btn {
+    font-size: 0.9rem;
+    padding: 1rem 0.75rem;
+    letter-spacing: 0.15em;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .contact-location-badge {
+    padding: 0.85rem;
+    font-size: 0.85rem;
+  }
+  .contact-location-badge .location-text {
+    font-size: 0.82rem;
   }
 
   /* ── PACKAGES ── */
@@ -2395,6 +2473,15 @@ button {
   /* ── ART WALL ── */
   .art-row-two-break { padding: 1rem; }
   .break-quote-text { font-size: 1.4rem; }
+
+  /* ── CONTACT ── */
+  .contact-headline { font-size: 1.7rem; }
+  .contact-form-box { padding: 1rem 0.65rem; }
+  .contact-form-title { font-size: 1.2rem; }
+  .form-control { padding: 0.65rem; font-size: 16px; }
+  .form-submit-btn { font-size: 0.82rem; padding: 0.85rem 0.5rem; }
+  .channel-btn { font-size: 0.72rem; padding: 0.75rem 0.4rem; gap: 0.4rem; }
+  .contact-location-badge { padding: 0.75rem; }
 
   /* ── FOOTER ── */
   .footer-social-link { flex: 1 1 100%; }
