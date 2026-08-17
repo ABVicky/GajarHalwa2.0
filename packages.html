@@ -6,38 +6,45 @@
   <title>Wedding Content Packages — Gajar Halwa | Wedding Socials</title>
   <meta name="description" content="Wedding content packages by Gajar Halwa: The Halwa Bite (Silver ₹11,001), The Kesariya Jalebi (Gold ₹21,001), and The Shahi Tukda (Platinum ₹51,001). Instant stories, viral reels & live social buzz.">
   
+  <!-- Google Fonts: Retro Indian Festive & Matchbox Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Calistoga&family=Outfit:wght@400;500;600;700;800;900&family=Righteous&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navigation (Centered Split Navbar) -->
   <header class="site-nav">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-brand">
-          <div class="nav-logo-badge">
-            <img src="assets/images/logo.png" alt="Gajar Halwa Emblem">
-          </div>
-          <div class="nav-brand-title">
-            <span class="nav-brand-name">GAJAR HALWA</span>
-            <span class="nav-brand-sub">WEDDING SOCIALS</span>
-          </div>
-        </a>
-
-        <nav>
+    <div class="container-wide">
+      <div class="nav-inner-split">
+        <!-- Left Menu: STORY, CONTACT -->
+        <nav class="nav-split-left">
           <ul class="nav-links">
             <li><a href="index.html#story" class="nav-link">STORY</a></li>
-            <li><a href="index.html#edit" class="nav-link">EDIT</a></li>
-            <li><a href="index.html#work" class="nav-link">WORK</a></li>
-            <li><a href="packages.html" class="nav-link active">PACKAGES</a></li>
             <li><a href="index.html#contact" class="nav-link">CONTACT</a></li>
           </ul>
         </nav>
 
-        <a href="index.html#contact" class="nav-cta">LET'S TALK →</a>
+        <!-- Center Protruding Brand Logo Emblem -->
+        <a href="index.html" class="nav-brand-center" aria-label="Gajar Halwa Home">
+          <div class="nav-center-logo">
+            <img src="assets/images/logo.png" alt="Gajar Halwa">
+          </div>
+        </a>
 
+        <!-- Right Menu: PACKAGES, WORK -->
+        <nav class="nav-split-right">
+          <ul class="nav-links">
+            <li><a href="packages.html" class="nav-link active">PACKAGES</a></li>
+            <li><a href="index.html#work" class="nav-link">WORK</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
         <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu">
           <span></span>
           <span></span>
@@ -50,11 +57,9 @@
   <!-- Mobile Overlay Navigation -->
   <div class="mobile-nav">
     <a href="index.html#story" class="nav-link">STORY</a>
-    <a href="index.html#edit" class="nav-link">EDIT</a>
     <a href="index.html#work" class="nav-link">WORK</a>
     <a href="packages.html" class="nav-link active">PACKAGES</a>
     <a href="index.html#contact" class="nav-link">CONTACT</a>
-    <a href="index.html#contact" class="nav-cta" style="margin-top: 1rem;">LET'S TALK →</a>
   </div>
 
   <main>
@@ -120,7 +125,9 @@
           <!-- Visual Box -->
           <div class="package-visual-composition">
             <div class="package-visual-box">
-              <img src="assets/images/haldi_laughter.jpg" alt="The Halwa Bite Silver Package" loading="lazy">
+              <video class="package-reel-video" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;">
+                <source src="assets/videos/reel_haldi_ceremony.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
@@ -134,7 +141,9 @@
           <!-- Visual Box -->
           <div class="package-visual-composition">
             <div class="package-visual-box">
-              <img src="assets/images/dance_floor.jpg" alt="The Kesariya Jalebi Gold Package" loading="lazy">
+              <video class="package-reel-video" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;">
+                <source src="assets/videos/reel_sangeet_dance.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
 
@@ -248,7 +257,9 @@
           <!-- Visual Box -->
           <div class="package-visual-composition">
             <div class="package-visual-box">
-              <img src="assets/images/mandap.jpg" alt="The Shahi Tukda Platinum Package" loading="lazy">
+              <video class="package-reel-video" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;">
+                <source src="assets/videos/reel_baraat_entry.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
         </div>
@@ -417,12 +428,8 @@
       <div class="footer-top-grid">
         <div class="footer-tagline-block">
           <div class="nav-brand" style="margin-bottom: 0.75rem;">
-            <div class="nav-logo-badge">
-              <img src="assets/images/logo.png" alt="Gajar Halwa">
-            </div>
-            <div class="nav-brand-title">
-              <span class="nav-brand-name">GAJAR HALWA</span>
-              <span class="nav-brand-sub">WEDDING SOCIALS</span>
+            <div class="nav-logo-badge" style="height: 68px;">
+              <img src="assets/images/logo.png" alt="Gajar Halwa" style="max-height: 68px;">
             </div>
           </div>
           <p class="footer-tagline">

@@ -111,4 +111,23 @@ document.addEventListener('DOMContentLoaded', () => {
       revealObserver.observe(el);
     });
   }
+
+  // 6. Video Audio / Sound Toggle Handler
+  const heroVideo = document.getElementById('hero-video-player');
+  const soundToggleBtn = document.getElementById('hero-sound-toggle');
+  if (heroVideo && soundToggleBtn) {
+    const mutedIcon = soundToggleBtn.querySelector('.sound-muted');
+    const unmutedIcon = soundToggleBtn.querySelector('.sound-unmuted');
+
+    soundToggleBtn.addEventListener('click', () => {
+      heroVideo.muted = !heroVideo.muted;
+      if (heroVideo.muted) {
+        if (mutedIcon) mutedIcon.style.display = 'inline';
+        if (unmutedIcon) unmutedIcon.style.display = 'none';
+      } else {
+        if (mutedIcon) mutedIcon.style.display = 'none';
+        if (unmutedIcon) unmutedIcon.style.display = 'inline';
+      }
+    });
+  }
 });
