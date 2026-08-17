@@ -166,6 +166,12 @@ The layout is engineered to scale across all viewport dimensions:
 
 ---
 
+## 👨‍💻 Credits & Developer
+
+Designed & Developed by **[Vicky Prasad Mahato](https://abvicky.in)** ([abvicky.in](https://abvicky.in)).
+
+---
+
 ## 📄 Copyright & License
 
 © 2026 **Gajar Halwa — Wedding Socials**. All rights reserved.  

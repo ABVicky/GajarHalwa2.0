@@ -1,6 +1,7 @@
 /* ==========================================================================
    GAJAR HALWA — WEDDING SOCIALS
    Interactive & Editorial Scripts
+   Designed & Developed by Vicky Prasad Mahato (https://abvicky.in)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
