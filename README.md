@@ -2,7 +2,7 @@
 
 > **"At Gajar Halwa, we don’t just capture moments — we create memories that trend. From candid reels to instant story drops, we bring your wedding alive online — within hours."**
 
-A bold, modern, editorial digital experience crafted for **Gajar Halwa — Wedding Socials**. Built with vibrant solid color transitions, folk-modern display typography, transparent brand emblems, and a curated editorial art wall — avoiding generic wedding templates, luxury beige tropes, and boring rectangular grids.
+A bold, modern, editorial digital experience crafted for **Gajar Halwa — Wedding Socials**. Built with vibrant solid color transitions, folk-modern display typography, a centered split navbar with a hanging brand emblem, real auto-looping wedding reels, and a curated editorial art wall — avoiding generic wedding templates, luxury beige tropes, and boring rectangular grids.
 
 ---
 
@@ -17,11 +17,11 @@ The visual language is extracted directly from the iconic **Gajar Halwa** brand 
 | **Bright Orange** | `#F58220` | Marigold accents, CTAs, Process section highlight |
 | **Hot Rani Pink** | `#E93C79` | High-energy moment tags, badge accents |
 | **Fresh Green** | `#109B53` | Mehendi freshness, confirmation badges |
-| **Deep Wedding Red** | `#581414` | High-contrast borders, display typography,Sindoor depth |
+| **Deep Wedding Red** | `#581414` | High-contrast borders, display typography, Sindoor depth |
 
 ### 🔤 Typography
-* **Display Serif**: `Rozha One` — Grand Indian display serif with thick-thin editorial contrast.
-* **Heavy Display**: `Syne` (Weights 700, 800) — Bold contemporary editorial display.
+* **Display Folk Serif**: `Calistoga` / `Abril Fatface` — Grand Indian display serif with thick-thin editorial contrast.
+* **Heavy Display**: `Righteous` / `Syne` — Bold contemporary festival poster display.
 * **Body & Labels**: `Outfit` — Modern, ultra-clean tracked editorial sans-serif.
 
 ---
@@ -29,34 +29,35 @@ The visual language is extracted directly from the iconic **Gajar Halwa** brand 
 ## 🏛️ Website Architecture
 
 ### 1. Homepage (`index.html`)
-1. **Poster-Style Hero**:
+1. **Centered Split Navbar**:
+   - Centered protruding brand logo emblem hanging across the navbar border.
+   - Symmetrical split menu: `STORY` & `CONTACT` (Left) | `PACKAGES` & `WORK` (Right).
+   - Animated mobile hamburger drawer with frosted backdrop blur on smaller viewports.
+2. **Poster-Style Hero**:
    - Oversized asymmetric typography (`GAJAR HALWA / WEDDING SOCIALS`).
-   - Scalloped editorial couple portrait frame with floating brand badge.
-   - Minimal navigation: `STORY`, `EDIT`, `WORK`, `PACKAGES`, `CONTACT`, with `LET'S TALK →` CTA.
-2. **Brand Statement** *(Solid Warm Cream)*:
+   - Scalloped editorial reel frame featuring high-definition auto-looping wedding footage with interactive sound toggle.
+   - Instant action triggers: `LET'S TALK →` and `EXPLORE PACKAGES`.
+3. **Brand Statement** *(Solid Warm Cream)*:
    - *"WE DON'T JUST COVER WEDDINGS. WE MAKE THEM FEEL LIKE YOU."*
-   - Zero corporate fluff or team stats.
-3. **The Wedding Edit** *(Curated Editorial Art Wall)*:
-   - **No category tabs (no Haldi/Mehendi/Sangeet splits), no standard grids.**
-   - Dynamic rhythm of scale, vertical crops, wide frames, typographic quote breaks, and minimal moment labels (`SHOT ON THE DANCE FLOOR`, `BETWEEN CHAOS & CALM`, `UNPLANNED MOMENT`, `MIDNIGHT EUPHORIA`).
-4. **What Gajar Halwa Does** *(Solid Bright Orange)*:
+   - Unfiltered candids, real human euphoria, zero corporate fluff.
+4. **The Wedding Edit** *(Curated Editorial Art Wall)*:
+   - **Video-first showcase with real wedding reels**: Baraat entries, Haldi ceremonies, Sangeet dance floors, Mehendi art, and Pagdi tying.
+   - Dynamic rhythm of scale, vertical crops, wide frames, typographic quote breaks, and minimal moment labels.
+5. **What Gajar Halwa Does** *(Solid Bright Orange)*:
    - Three bold pillars: **SHOOT.** / **EDIT.** / **AMPLIFY.**
-5. **Selected Work**:
-   - Full cinematic twilight mandap spread and high-fashion bridal moments with `SEE PACKAGES & DELIVERABLES →`.
-6. **Contact / Date Inquiry Section** *(Solid Gajar Teal)*:
-   - Headline: **GOT A DATE? / LET'S MAKE IT WORTH REMEMBERING.**
-   - Direct WhatsApp connect button (`+91 6289 831 240`).
-   - Direct Email link (`gajarhalwaweddingsocials@gmail.com`).
-   - Studio & Headquarters address card.
-   - Interactive date inquiry form with instant pre-filled WhatsApp link generation.
-7. **Footer**:
-   - Transparent brand emblem, tagline (*"MADE FOR MOMENTS THAT DON'T HAPPEN TWICE."*), studio address, and official social links.
+6. **Selected Work**:
+   - Full cinematic frame and high-fashion editorial moments with direct links to collections.
+7. **Interactive Inquiry & Contact Section** *(Solid Gajar Teal)*:
+   - Direct WhatsApp & Email inquiry buttons.
+   - Fully responsive inquiry form with dynamic package pre-selection and automatic WhatsApp message formatting.
+8. **Footer**:
+   - Brand logo emblem, tagline (*"MADE FOR MOMENTS THAT DON'T HAPPEN TWICE."*), and social channel links.
 
 ---
 
 ### 2. Packages Page (`packages.html`)
 
-Three large solid color editorial compositions (no pricing cards, no tables, no generic bullet lists):
+Three large solid color editorial compositions (no generic tables or standard bullet lists):
 
 #### 🍨 Collection 01: THE HALWA BITE (SILVER)
 * **Commercials**: `₹11,001 + GST`
@@ -106,35 +107,26 @@ Three large solid color editorial compositions (no pricing cards, no tables, no 
 
 ---
 
-## 📍 Official Contact & Headquarters
-
-* 📱 **WhatsApp**: [+91 6289 831 240](https://wa.me/916289831240)
-* ✉️ **Email**: [gajarhalwaweddingsocials@gmail.com](mailto:gajarhalwaweddingsocials@gmail.com)
-* 📸 **Instagram**: [@gajarhalwaweddingsocials](https://instagram.com/gajarhalwaweddingsocials)
-* 🏢 **Studio Address**: `70, Golaghata Rd, Dakshindari, Kolkata, South Dumdum, West Bengal 700048`
-
----
-
 ## 📁 Project Directory Structure
 
 ```text
 GajarHalwa/
 ├── index.html              # Homepage (Poster Hero, Statement, Art Wall, Process, Work, Contact)
 ├── packages.html           # Dedicated Packages Page (3 Collections, Gear, Add-ons, Policies)
-├── logo.png                # Native brand transparent emblem
 ├── styles/
-│   └── main.css            # Design tokens, typography, scalloped masks, responsive system
+│   └── main.css            # Design tokens, typography, split nav, video frames, responsive system
 ├── scripts/
-│   └── main.js             # Mobile nav drawer, package auto-select, interactive form
+│   └── main.js             # Mobile nav drawer, video sound controls, package auto-select, interactive form
 ├── assets/
-│   └── images/             # High-resolution editorial Indian wedding visuals & logo
-│       ├── logo.png
-│       ├── hero.jpg
-│       ├── dance_floor.jpg
-│       ├── portrait_bride.jpg
-│       ├── mandap.jpg
-│       ├── haldi_laughter.jpg
-│       └── baraat_euphoria.jpg
+│   ├── images/             # Brand logo assets & icons
+│   │   └── logo.png
+│   └── videos/             # Real wedding reels (9:16 portrait & cinematic formats)
+│       ├── hero_reel.mp4
+│       ├── reel_baraat_entry.mp4
+│       ├── reel_haldi_ceremony.mp4
+│       ├── reel_mehendi_art.mp4
+│       ├── reel_pagdi_tying.mp4
+│       └── reel_sangeet_dance.mp4
 └── README.md               # Project documentation
 ```
 
@@ -167,9 +159,10 @@ Right-click `index.html` and select **"Open with Live Server"**.
 ## 📱 Responsive & Device Support
 
 The layout is engineered to scale across all viewport dimensions:
-* **Large Displays & Laptops** (`1200px+`): Asymmetric poster layouts, sticky navigation.
-* **Tablets** (`768px – 1024px`, iPad Pro / Air): Animated hamburger menu with frosted backdrop drawer, 1-column art wall stacking.
-* **Smartphones** (`320px – 480px`, iPhone 14/15/16 Pro, Samsung Galaxy, Pixel): Full-width 48px+ touch targets, iOS Safari 16px auto-zoom prevention, zero horizontal scroll overflow.
+* **Large Displays & Laptops** (`1200px+`): Asymmetric poster layouts, centered split navigation.
+* **Tablets** (`768px – 1024px`, iPad Pro / Air): Animated hamburger menu with frosted backdrop drawer, 1-column art wall stacking, constrained portrait reel video frames.
+* **Smartphones** (`320px – 480px`, iPhone, Samsung Galaxy, Pixel): Full-width touch targets, single-column stacked forms, iOS Safari 16px auto-zoom prevention, zero horizontal scroll overflow.
+* **Ultra-Compact Screens** (`≤ 360px`): Fluid typography scaling and adaptive spacing.
 
 ---
 
