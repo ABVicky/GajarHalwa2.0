@@ -2557,7 +2557,7 @@ textarea.form-control {
 }
 
 /* ==========================================================================
-   FLOATING RIGHT-EDGE WHATSAPP TAB (Always Visible)
+   FLOATING RIGHT-EDGE WHATSAPP TAB (Retro Indian Matchbox Aesthetic)
    ========================================================================== */
 .floating-whatsapp-tab {
   position: fixed;
@@ -2569,26 +2569,26 @@ textarea.form-control {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-  background-color: var(--cream-pure);
-  color: var(--bright-orange);
-  border: 1.5px solid var(--bright-orange);
+  background-color: var(--warm-cream);
+  color: var(--deep-red);
+  border: 2.5px solid var(--deep-red);
   border-right: none;
   border-radius: 4px 0 0 4px;
-  padding: 0.85rem 0.55rem 1.25rem 0.55rem;
+  padding: 0.9rem 0.6rem 1.35rem 0.6rem;
   text-decoration: none;
-  box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.12), -1px 2px 6px rgba(245, 130, 32, 0.15);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: -4px 4px 0px var(--deep-red);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.25s ease;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
 }
 
 .floating-whatsapp-tab:hover {
-  transform: translateY(-50%) translateX(-4px);
-  background-color: var(--warm-cream);
+  transform: translateY(-50%) translate(-4px, -2px);
+  background-color: var(--bright-orange);
   color: var(--deep-red);
   border-color: var(--deep-red);
-  box-shadow: -6px 8px 24px rgba(7, 45, 44, 0.22), -2px 3px 10px rgba(233, 60, 121, 0.2);
+  box-shadow: -7px 7px 0px var(--deep-red);
 }
 
 .floating-whatsapp-dot-wrap {
@@ -2596,47 +2596,49 @@ textarea.form-control {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 .floating-whatsapp-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   background-color: var(--bright-orange);
+  border: 1.5px solid var(--deep-red);
   border-radius: 50%;
   position: relative;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .floating-whatsapp-dot::after {
   content: '';
   position: absolute;
-  inset: -4px;
+  inset: -5px;
   border-radius: 50%;
-  background-color: rgba(245, 130, 32, 0.4);
+  background-color: rgba(245, 130, 32, 0.45);
   animation: pulse-whatsapp-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 
 .floating-whatsapp-tab:hover .floating-whatsapp-dot {
-  background-color: var(--deep-red);
+  background-color: var(--hot-pink);
+  border-color: var(--warm-cream);
 }
 
 .floating-whatsapp-tab:hover .floating-whatsapp-dot::after {
-  background-color: rgba(88, 20, 20, 0.4);
+  background-color: rgba(233, 60, 121, 0.5);
 }
 
 @keyframes pulse-whatsapp-ring {
   0% {
-    transform: scale(0.85);
-    opacity: 0.9;
+    transform: scale(0.8);
+    opacity: 0.95;
   }
   50% {
-    transform: scale(1.7);
+    transform: scale(1.75);
     opacity: 0;
   }
   100% {
-    transform: scale(0.85);
+    transform: scale(0.8);
     opacity: 0;
   }
 }
@@ -2645,58 +2647,63 @@ textarea.form-control {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--deep-red);
 }
 
 .floating-whatsapp-icon svg {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.3s ease;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.25s ease, color 0.2s ease;
 }
 
 .floating-whatsapp-tab:hover .floating-whatsapp-icon svg {
-  transform: scale(1.15);
+  transform: scale(1.15) rotate(-6deg);
 }
 
 .floating-whatsapp-text {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.22em;
+  font-family: var(--font-display-heavy);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   white-space: nowrap;
   line-height: 1;
+  color: var(--deep-red);
+  transition: color 0.2s ease;
 }
 
 /* Floating tab responsiveness */
 @media (max-width: 768px) {
   .floating-whatsapp-tab {
-    padding: 0.75rem 0.45rem 1rem 0.45rem;
-    gap: 0.6rem;
+    padding: 0.8rem 0.5rem 1.1rem 0.5rem;
+    gap: 0.65rem;
+    box-shadow: -3px 3px 0px var(--deep-red);
   }
   .floating-whatsapp-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
   }
   .floating-whatsapp-text {
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
   }
 }
 
 @media (max-width: 480px) {
   .floating-whatsapp-tab {
-    padding: 0.65rem 0.35rem 0.85rem 0.35rem;
+    padding: 0.7rem 0.4rem 0.95rem 0.4rem;
     gap: 0.5rem;
     top: 55%;
+    box-shadow: -2px 2px 0px var(--deep-red);
   }
   .floating-whatsapp-icon svg {
     width: 15px;
     height: 15px;
   }
   .floating-whatsapp-text {
-    font-size: 0.56rem;
+    font-size: 0.58rem;
     letter-spacing: 0.16em;
   }
 }
