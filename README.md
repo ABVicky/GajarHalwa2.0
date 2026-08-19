@@ -2,7 +2,7 @@
 
 > **"At Gajar Halwa, we don’t just capture moments — we create memories that trend. From candid reels to instant story drops, we bring your wedding alive online — within hours."**
 
-A bold, modern, editorial digital experience crafted for **Gajar Halwa — Wedding Socials**. Built with vibrant solid color transitions, folk-modern display typography, a centered split navbar with a hanging brand emblem, real auto-looping wedding reels, and a curated editorial art wall — avoiding generic wedding templates, luxury beige tropes, and boring rectangular grids.
+A bold, modern, editorial digital experience crafted for **Gajar Halwa — Wedding Socials**. Built with vibrant solid color transitions, folk-modern display typography, a centered split navbar with a hanging brand emblem, real auto-looping wedding reels with single-stream audio controls, interactive gated pricing, and a curated editorial art wall — avoiding generic wedding templates, luxury beige tropes, and boring rectangular grids.
 
 ---
 
@@ -26,6 +26,14 @@ The visual language is extracted directly from the iconic **Gajar Halwa** brand 
 
 ---
 
+## 🔊 Interactive Features & Video Audio Controls
+
+* **Universal Sound Toggle**: Every single video element across `index.html` and `packages.html` is equipped with a round floating sound control button (`🔇` / `🔊`).
+* **Exclusive Single-Audio Playback (Auto-Mute)**: Unmuting any video automatically mutes all other active videos on the page so that audio streams never overlap or clash.
+* **Interactive Gated Pricing Modal**: On `packages.html`, package charges are gated behind a quick lead capture modal (Name, Event Date, City, Phone). Unlocking a package reveals its price and auto-configures a customized WhatsApp booking link.
+
+---
+
 ## 🏛️ Website Architecture
 
 ### 1. Homepage (`index.html`)
@@ -42,11 +50,11 @@ The visual language is extracted directly from the iconic **Gajar Halwa** brand 
    - Unfiltered candids, real human euphoria, zero corporate fluff.
 4. **The Wedding Edit** *(Curated Editorial Art Wall)*:
    - **Video-first showcase with real wedding reels**: Baraat entries, Haldi ceremonies, Sangeet dance floors, Mehendi art, and Pagdi tying.
-   - Dynamic rhythm of scale, vertical crops, wide frames, typographic quote breaks, and minimal moment labels.
+   - Dynamic rhythm of scale, vertical crops, wide frames, typographic quote breaks, and minimal moment labels with individual sound controls.
 5. **What Gajar Halwa Does** *(Solid Bright Orange)*:
    - Three bold pillars: **SHOOT.** / **EDIT.** / **AMPLIFY.**
 6. **Selected Work**:
-   - Full cinematic frame and high-fashion editorial moments with direct links to collections.
+   - Full cinematic frame (`Gajar Halwa_Horizontal.mp4`) and high-fashion editorial moments with direct links to collections.
 7. **Interactive Inquiry & Contact Section** *(Solid Gajar Teal)*:
    - Direct WhatsApp & Email inquiry buttons.
    - Fully responsive inquiry form with dynamic package pre-selection and automatic WhatsApp message formatting.
@@ -57,10 +65,10 @@ The visual language is extracted directly from the iconic **Gajar Halwa** brand 
 
 ### 2. Packages Page (`packages.html`)
 
-Three large solid color editorial compositions (no generic tables or standard bullet lists):
+Three large solid color editorial compositions (with gated price unlocking and instant WhatsApp booking links):
 
 #### 🍨 Collection 01: THE HALWA BITE (SILVER)
-* **Commercials**: `₹11,001 + GST`
+* **Commercials**: `₹11,001 + GST` *(Unlocked via Lead Form)*
 * **Ideal For**: Intimate Weddings or Pre-Wedding Functions
 * **Deliverables**:
   * Coverage of 1 event
@@ -69,7 +77,7 @@ Three large solid color editorial compositions (no generic tables or standard bu
   * Basic coordination with decor & photography teams
 
 #### 🍧 Collection 02: THE KESARIYA JALEBI (GOLD) — *Signature*
-* **Commercials**: `₹21,001 + GST`
+* **Commercials**: `₹21,001 + GST` *(Unlocked via Lead Form)*
 * **Ideal For**: Full Wedding Weekends / 2-Day Coverage
 * **Deliverables**:
   * Coverage of 2 events
@@ -79,7 +87,7 @@ Three large solid color editorial compositions (no generic tables or standard bu
   * Coordination with photography, decor & music teams
 
 #### 👑 Collection 03: THE SHAHI TUKDA (PLATINUM) — *Bespoke*
-* **Commercials**: `₹51,001 + GST`
+* **Commercials**: `₹51,001 + GST` *(Unlocked via Lead Form)*
 * **Ideal For**: Destination or High-Content Weddings Wanting Maximum Social Buzz
 * **Deliverables**:
   * Coverage of 4 events
@@ -112,15 +120,20 @@ Three large solid color editorial compositions (no generic tables or standard bu
 ```text
 GajarHalwa/
 ├── index.html              # Homepage (Poster Hero, Statement, Art Wall, Process, Work, Contact)
-├── packages.html           # Dedicated Packages Page (3 Collections, Gear, Add-ons, Policies)
+├── packages.html           # Dedicated Packages Page (3 Collections, Gated Pricing, Gear, Add-ons, Policies)
 ├── styles/
-│   └── main.css            # Design tokens, typography, split nav, video frames, responsive system
+│   └── main.css            # Design tokens, typography, split nav, video sound buttons, responsive system
 ├── scripts/
-│   └── main.js             # Mobile nav drawer, video sound controls, package auto-select, interactive form
+│   └── main.js             # Mobile nav, universal auto-mute video sound manager, gated pricing unlock
 ├── assets/
 │   ├── images/             # Brand logo assets & icons
 │   │   └── logo.png
-│   └── videos/             # Real wedding reels (9:16 portrait & cinematic formats)
+│   └── videos/             # Real wedding reels & cinematic films
+│       ├── (NIF) Gajar Halwa Final.mp4
+│       ├── Dance_Party.mp4
+│       ├── GH 29 5 2026_3 - DOC.mp4
+│       ├── Gajar Halwa_Horizontal.mp4
+│       ├── Package3.mp4
 │       ├── hero_reel.mp4
 │       ├── reel_baraat_entry.mp4
 │       ├── reel_haldi_ceremony.mp4

@@ -286,22 +286,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Video Audio / Sound Toggle Handler
-  const heroVideo = document.getElementById('hero-video-player');
-  const soundToggleBtn = document.getElementById('hero-sound-toggle');
-  if (heroVideo && soundToggleBtn) {
-    const mutedIcon = soundToggleBtn.querySelector('.sound-muted');
-    const unmutedIcon = soundToggleBtn.querySelector('.sound-unmuted');
+  // 7. Universal Video Audio / Sound Toggle Handler for all videos (Auto-mutes other videos when one is unmuted)
+  const videos = document.querySelectorAll('video');
 
-    soundToggleBtn.addEventListener('click', () => {
-      heroVideo.muted = !heroVideo.muted;
-      if (heroVideo.muted) {
-        if (mutedIcon) mutedIcon.style.display = 'inline';
-        if (unmutedIcon) unmutedIcon.style.display = 'none';
+  const updateVideoIconState = (vid) => {
+    const container = vid.parentElement;
+    if (!container) return;
+    const toggleBtn = container.querySelector('.video-sound-toggle');
+    if (!toggleBtn) return;
+    const mutedIcon = toggleBtn.querySelector('.sound-muted');
+    const unmutedIcon = toggleBtn.querySelector('.sound-unmuted');
+
+    if (vid.muted) {
+      if (mutedIcon) mutedIcon.style.display = 'inline';
+      if (unmutedIcon) unmutedIcon.style.display = 'none';
+    } else {
+      if (mutedIcon) mutedIcon.style.display = 'none';
+      if (unmutedIcon) unmutedIcon.style.display = 'inline';
+    }
+  };
+
+  videos.forEach(video => {
+    const container = video.parentElement;
+    if (!container) return;
+
+    let toggleBtn = container.querySelector('.video-sound-toggle');
+    if (!toggleBtn) {
+      toggleBtn = document.createElement('button');
+      toggleBtn.type = 'button';
+      toggleBtn.className = 'video-sound-toggle';
+      toggleBtn.setAttribute('aria-label', 'Toggle Video Audio');
+      toggleBtn.innerHTML = `
+        <span class="sound-icon sound-muted">🔇</span>
+        <span class="sound-icon sound-unmuted" style="display: none;">🔊</span>
+      `;
+      container.appendChild(toggleBtn);
+    }
+
+    updateVideoIconState(video);
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isCurrentlyMuted = video.muted;
+
+      if (isCurrentlyMuted) {
+        // Auto-mute all other videos on the page when unmuting this video
+        videos.forEach(otherVideo => {
+          if (otherVideo !== video) {
+            otherVideo.muted = true;
+            updateVideoIconState(otherVideo);
+          }
+        });
+        video.muted = false;
       } else {
-        if (mutedIcon) mutedIcon.style.display = 'none';
-        if (unmutedIcon) unmutedIcon.style.display = 'inline';
+        video.muted = true;
       }
+
+      updateVideoIconState(video);
     });
-  }
+
+    video.addEventListener('volumechange', () => {
+      updateVideoIconState(video);
+    });
+  });
 });

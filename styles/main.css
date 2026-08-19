@@ -1930,6 +1930,7 @@ textarea.form-control {
 }
 
 .package-visual-box {
+  position: relative;
   overflow: hidden;
   border: 3px solid var(--deep-red);
   box-shadow: 12px 12px 0px var(--deep-red);
