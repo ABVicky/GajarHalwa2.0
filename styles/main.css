@@ -1767,17 +1767,24 @@ textarea.form-control {
 .price-locked-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.45rem 0.85rem;
-  background: rgba(0, 0, 0, 0.07);
-  border: 1.5px dashed var(--deep-red);
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
+  background: rgba(88, 20, 20, 0.08);
+  border: 2px dashed var(--deep-red);
   border-radius: 2px;
   font-family: var(--font-display-heavy);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 900;
   letter-spacing: 0.15em;
   color: var(--deep-red);
   text-transform: uppercase;
+}
+
+/* High-contrast styling on Platinum / Grand Affair dark background */
+.package-block-grandaffair .price-locked-tag {
+  background: rgba(252, 230, 186, 0.18);
+  border: 2px dashed var(--warm-cream);
+  color: var(--warm-cream);
 }
 
 .btn-unlock-inline {
@@ -1787,15 +1794,22 @@ textarea.form-control {
   background-color: var(--bright-orange);
   color: var(--deep-red);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  padding: 0.5rem 1rem;
+  padding: 0.52rem 1.1rem;
   border: 2px solid var(--deep-red);
   box-shadow: 3px 3px 0px var(--deep-red);
   cursor: pointer;
   transition: var(--transition-fast);
+}
+
+.package-block-grandaffair .btn-unlock-inline {
+  background-color: var(--bright-orange);
+  color: var(--deep-red);
+  border-color: var(--warm-cream);
+  box-shadow: 3px 3px 0px var(--warm-cream);
 }
 
 .btn-unlock-inline:hover {
@@ -1803,6 +1817,12 @@ textarea.form-control {
   color: var(--warm-cream);
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0px var(--deep-red);
+}
+
+.package-block-grandaffair .btn-unlock-inline:hover {
+  background-color: var(--warm-cream);
+  color: var(--deep-red);
+  box-shadow: 5px 5px 0px var(--bright-orange);
 }
 
 /* Price Revealed View */
