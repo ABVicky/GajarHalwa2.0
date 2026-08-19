@@ -1678,11 +1678,157 @@ textarea.form-control {
   box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
+/* Pricing Unlocked Notification Banner */
+.pricing-unlocked-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--fresh-green);
+  color: var(--cream-pure);
+  border: 2.5px solid var(--deep-red);
+  box-shadow: 6px 6px 0px var(--deep-red);
+  padding: 0.85rem 1.5rem;
+  margin-top: 2rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2px;
+  animation: banner-slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-unlocked-banner .unlocked-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.pricing-unlocked-banner .unlocked-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.pricing-unlocked-banner .unlocked-text strong {
+  font-family: var(--font-display-heavy);
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+}
+
+.btn-change-date {
+  background: var(--cream-pure);
+  color: var(--deep-red);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  border: 1.5px solid var(--deep-red);
+  box-shadow: 2px 2px 0px var(--deep-red);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.btn-change-date:hover {
+  background: var(--bright-orange);
+  color: var(--cream-pure);
+}
+
+@keyframes banner-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .package-price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  min-height: 52px;
+}
+
+/* Price Locked View */
+.price-locked-view {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.price-locked-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(0, 0, 0, 0.07);
+  border: 1.5px dashed var(--deep-red);
+  border-radius: 2px;
+  font-family: var(--font-display-heavy);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--deep-red);
+  text-transform: uppercase;
+}
+
+.btn-unlock-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--bright-orange);
+  color: var(--deep-red);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--deep-red);
+  box-shadow: 3px 3px 0px var(--deep-red);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-unlock-inline:hover {
+  background-color: var(--hot-pink);
+  color: var(--warm-cream);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--deep-red);
+}
+
+/* Price Revealed View */
+.price-revealed-view {
   display: flex;
   align-items: baseline;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  animation: price-fade-in 0.4s ease;
+}
+
+.price-verified-badge {
+  display: inline-block;
+  padding: 0.25rem 0.55rem;
+  background: var(--fresh-green);
+  color: var(--cream-pure);
+  border-radius: 2px;
+  font-family: var(--font-display-heavy);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  margin-left: 0.35rem;
+}
+
+@keyframes price-fade-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .package-price-tag {
@@ -2705,5 +2851,187 @@ textarea.form-control {
   .floating-whatsapp-text {
     font-size: 0.58rem;
     letter-spacing: 0.16em;
+  }
+}
+
+/* ==========================================================================
+   UNLOCK PRICING MODAL DIALOG
+   ========================================================================== */
+.pricing-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.pricing-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(7, 45, 44, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: modal-fade-in 0.25s ease-out;
+}
+
+.pricing-modal-container {
+  position: relative;
+  z-index: 10;
+  max-width: 540px;
+  width: 100%;
+  background-color: var(--warm-cream);
+  color: var(--deep-red);
+  border: 3.5px solid var(--deep-red);
+  box-shadow: 12px 12px 0px var(--deep-red);
+  border-radius: 2px;
+  padding: clamp(1.75rem, 5vw, 2.75rem);
+  box-sizing: border-box;
+  animation: modal-pop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: auto;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.pricing-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  background-color: var(--deep-red);
+  color: var(--warm-cream);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  border: 2px solid var(--deep-red);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: var(--transition-fast);
+}
+
+.pricing-modal-close:hover {
+  background-color: var(--hot-pink);
+  color: #FFFFFF;
+  transform: scale(1.05);
+}
+
+.pricing-modal-header {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  padding-right: 2.5rem;
+}
+
+.modal-badge {
+  display: inline-block;
+  font-family: var(--font-display-heavy);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: var(--bright-orange-dark);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.modal-title {
+  font-family: var(--font-display-folk);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--deep-red);
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+
+.modal-sub {
+  font-size: 0.95rem;
+  color: var(--deep-red);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.unlock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  width: 100%;
+}
+
+.modal-submit-btn {
+  background-color: var(--deep-red);
+  color: var(--warm-cream);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 1.15rem 1.25rem;
+  border: 2px solid var(--deep-red);
+  box-shadow: 4px 4px 0px var(--bright-orange);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  margin-top: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-sizing: border-box;
+}
+
+.modal-submit-btn:hover {
+  background-color: var(--hot-pink);
+  color: #FFFFFF;
+  box-shadow: 6px 6px 0px var(--deep-red);
+  transform: translate(-2px, -2px);
+}
+
+.modal-privacy-note {
+  font-size: 0.75rem;
+  color: rgba(88, 20, 20, 0.75);
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Modal mobile optimizations */
+@media (max-width: 480px) {
+  .pricing-modal-container {
+    padding: 1.5rem 1.1rem;
+    box-shadow: 6px 6px 0px var(--deep-red);
+  }
+  .pricing-modal-header {
+    padding-right: 2rem;
+    margin-bottom: 1.25rem;
+  }
+  .pricing-modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+  .modal-submit-btn {
+    font-size: 0.85rem;
+    padding: 1rem 0.75rem;
+    letter-spacing: 0.12em;
   }
 }

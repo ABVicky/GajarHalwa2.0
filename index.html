@@ -415,15 +415,21 @@
             <div id="form-success-message" class="form-success-message"></div>
 
             <form id="wedding-inquiry-form" class="inquiry-form">
-              <div class="form-group">
-                <label for="couple-name">Couple Names *</label>
-                <input type="text" id="couple-name" class="form-control" placeholder="e.g. Ananya & Kabir" required>
+              <div class="form-row-dual">
+                <div class="form-group">
+                  <label for="couple-name">Couple Names *</label>
+                  <input type="text" id="couple-name" class="form-control" placeholder="e.g. Ananya & Kabir" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-phone">Phone / WhatsApp Number *</label>
+                  <input type="tel" id="contact-phone" class="form-control" placeholder="e.g. 9876543210" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" required>
+                </div>
               </div>
 
               <div class="form-row-dual">
                 <div class="form-group">
-                  <label for="wedding-date">Wedding Dates *</label>
-                  <input type="text" id="wedding-date" class="form-control" placeholder="e.g. Nov 18–20, 2026" required>
+                  <label for="wedding-date">Date of Event *</label>
+                  <input type="date" id="wedding-date" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="wedding-city">City / Destination *</label>
@@ -432,12 +438,11 @@
               </div>
 
               <div class="form-group">
-                <label for="preferred-package">Selected Package</label>
+                <label for="preferred-package">Selected Collection</label>
                 <select id="preferred-package" class="form-control">
-                  <option value="The Kesariya Jalebi (Gold - ₹21,001)">The Kesariya Jalebi (Gold - ₹21,001) ★ Most
-                    Popular</option>
-                  <option value="The Halwa Bite (Silver - ₹11,001)">The Halwa Bite (Silver - ₹11,001)</option>
-                  <option value="The Shahi Tukda (Platinum - ₹51,001)">The Shahi Tukda (Platinum - ₹51,001)</option>
+                  <option value="The Kesariya Jalebi (Gold Collection)">The Kesariya Jalebi (Gold Collection) ★ Most Popular</option>
+                  <option value="The Halwa Bite (Silver Collection)">The Halwa Bite (Silver Collection)</option>
+                  <option value="The Shahi Tukda (Platinum Collection)">The Shahi Tukda (Platinum Collection)</option>
                   <option value="Bespoke / Custom Requirements">Bespoke / Custom Requirements</option>
                 </select>
               </div>

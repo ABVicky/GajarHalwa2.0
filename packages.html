@@ -82,6 +82,16 @@
         <p class="packages-page-subtitle">
           At Gajar Halwa, we don’t just capture moments — we create memories that trend. From candid reels to instant story drops, we bring your wedding alive online — within hours.
         </p>
+
+        <!-- Dynamic Pricing Unlocked Notification Banner (Shown when user submits event details) -->
+        <div id="pricing-unlocked-banner" class="pricing-unlocked-banner" style="display: none;">
+          <span class="unlocked-icon">🎉</span>
+          <div class="unlocked-text">
+            <strong>PRICING UNLOCKED FOR YOUR EVENT:</strong>
+            <span id="unlocked-event-info">Event Date: Selected</span>
+          </div>
+          <button type="button" class="btn-change-date" id="btn-change-date">Change Details</button>
+        </div>
       </div>
     </section>
 
@@ -98,9 +108,19 @@
               IDEAL FOR: INTIMATE WEDDINGS OR PRE-WEDDING FUNCTIONS
             </div>
 
+            <!-- Gated Price Row -->
             <div class="package-price-row">
-              <span class="package-price-tag">₹11,001</span>
-              <span class="package-price-sub">+ GST</span>
+              <div class="price-locked-view" id="price-locked-1">
+                <span class="price-locked-tag">🔒 PRICING ON REQUEST</span>
+                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="The Halwa Bite (Silver)">
+                  VIEW CHARGES <span>→</span>
+                </button>
+              </div>
+              <div class="price-revealed-view" id="price-revealed-1" style="display: none;">
+                <span class="package-price-tag">₹11,001</span>
+                <span class="package-price-sub">+ GST</span>
+                <span class="price-verified-badge">✓ UNLOCKED</span>
+              </div>
             </div>
 
             <p class="package-summary">
@@ -127,8 +147,11 @@
             </ul>
 
             <div class="package-action-row">
-              <a href="index.html?package=The+Halwa+Bite+(Silver+-+₹11,001)#contact" class="btn-book-package">
-                BOOK THE HALWA BITE <span>→</span>
+              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" data-package="The Halwa Bite (Silver)">
+                UNLOCK CHARGES FOR YOUR DATE <span>→</span>
+              </button>
+              <a href="https://wa.me/916289831240" class="btn-book-package action-btn-revealed" id="btn-book-1" style="display: none;" target="_blank" rel="noopener noreferrer">
+                BOOK THE HALWA BITE (WHATSAPP) <span>→</span>
               </a>
             </div>
           </div>
@@ -167,9 +190,19 @@
               IDEAL FOR: FULL WEDDING WEEKENDS / 2-DAY COVERAGE
             </div>
 
+            <!-- Gated Price Row -->
             <div class="package-price-row">
-              <span class="package-price-tag" style="color: var(--deep-red);">₹21,001</span>
-              <span class="package-price-sub">+ GST</span>
+              <div class="price-locked-view" id="price-locked-2">
+                <span class="price-locked-tag" style="color: var(--deep-red); border-color: var(--deep-red);">🔒 PRICING ON REQUEST</span>
+                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="The Kesariya Jalebi (Gold)" style="background: var(--deep-red); color: var(--warm-cream); border-color: var(--deep-red);">
+                  VIEW CHARGES <span>→</span>
+                </button>
+              </div>
+              <div class="price-revealed-view" id="price-revealed-2" style="display: none;">
+                <span class="package-price-tag" style="color: var(--deep-red);">₹21,001</span>
+                <span class="package-price-sub">+ GST</span>
+                <span class="price-verified-badge" style="background: var(--deep-red); color: var(--warm-cream);">✓ UNLOCKED</span>
+              </div>
             </div>
 
             <p class="package-summary">
@@ -200,8 +233,11 @@
             </ul>
 
             <div class="package-action-row">
-              <a href="index.html?package=The+Kesariya+Jalebi+(Gold+-+₹21,001)#contact" class="btn-book-package">
-                BOOK KESARIYA JALEBI <span>→</span>
+              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" data-package="The Kesariya Jalebi (Gold)" style="background: var(--deep-red); color: var(--warm-cream);">
+                UNLOCK CHARGES FOR YOUR DATE <span>→</span>
+              </button>
+              <a href="https://wa.me/916289831240" class="btn-book-package action-btn-revealed" id="btn-book-2" style="display: none; background: var(--deep-red); color: var(--warm-cream);" target="_blank" rel="noopener noreferrer">
+                BOOK KESARIYA JALEBI (WHATSAPP) <span>→</span>
               </a>
             </div>
           </div>
@@ -222,9 +258,19 @@
               IDEAL FOR: DESTINATION OR HIGH-CONTENT WEDDINGS WANTING MAXIMUM SOCIAL BUZZ
             </div>
 
+            <!-- Gated Price Row -->
             <div class="package-price-row">
-              <span class="package-price-tag">₹51,001</span>
-              <span class="package-price-sub">+ GST</span>
+              <div class="price-locked-view" id="price-locked-3">
+                <span class="price-locked-tag">🔒 PRICING ON REQUEST</span>
+                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="The Shahi Tukda (Platinum)">
+                  VIEW CHARGES <span>→</span>
+                </button>
+              </div>
+              <div class="price-revealed-view" id="price-revealed-3" style="display: none;">
+                <span class="package-price-tag">₹51,001</span>
+                <span class="package-price-sub">+ GST</span>
+                <span class="price-verified-badge">✓ UNLOCKED</span>
+              </div>
             </div>
 
             <p class="package-summary">
@@ -259,8 +305,11 @@
             </ul>
 
             <div class="package-action-row">
-              <a href="index.html?package=The+Shahi+Tukda+(Platinum+-+₹51,001)#contact" class="btn-book-package">
-                INQUIRE SHAHI TUKDA <span>→</span>
+              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" data-package="The Shahi Tukda (Platinum)">
+                UNLOCK CHARGES FOR YOUR DATE <span>→</span>
+              </button>
+              <a href="https://wa.me/916289831240" class="btn-book-package action-btn-revealed" id="btn-book-3" style="display: none;" target="_blank" rel="noopener noreferrer">
+                BOOK SHAHI TUKDA (WHATSAPP) <span>→</span>
               </a>
             </div>
           </div>
@@ -328,14 +377,20 @@
           <div class="editorial-info-card" style="background: var(--warm-cream);">
             <span style="font-size: 0.75rem; font-weight: 900; letter-spacing: 0.2em; color: var(--hot-pink);">ADD-ON</span>
             <h3>Extra Reels</h3>
-            <p style="font-size: 1.5rem; font-weight: 800; font-family: var(--font-display-folk); color: var(--deep-red);">₹3,000 <span style="font-size: 0.85rem; font-family: var(--font-body);">/ reel</span></p>
+            <div class="addon-price-box">
+              <p class="addon-price-locked" style="font-size: 1.1rem; font-weight: 700; color: var(--deep-red);">🔒 Rate on Request</p>
+              <p class="addon-price-revealed" style="display: none; font-size: 1.5rem; font-weight: 800; font-family: var(--font-display-folk); color: var(--deep-red);">₹3,000 <span style="font-size: 0.85rem; font-family: var(--font-body);">/ reel</span></p>
+            </div>
             <p>Additional vertical trending or family-specific reel edits cut to custom audio.</p>
           </div>
 
           <div class="editorial-info-card" style="background: var(--warm-cream);">
             <span style="font-size: 0.75rem; font-weight: 900; letter-spacing: 0.2em; color: var(--hot-pink);">ADD-ON</span>
             <h3>Extra Story</h3>
-            <p style="font-size: 1.5rem; font-weight: 800; font-family: var(--font-display-folk); color: var(--deep-red);">₹1,000 <span style="font-size: 0.85rem; font-family: var(--font-body);">/ story</span></p>
+            <div class="addon-price-box">
+              <p class="addon-price-locked" style="font-size: 1.1rem; font-weight: 700; color: var(--deep-red);">🔒 Rate on Request</p>
+              <p class="addon-price-revealed" style="display: none; font-size: 1.5rem; font-weight: 800; font-family: var(--font-display-folk); color: var(--deep-red);">₹1,000 <span style="font-size: 0.85rem; font-family: var(--font-body);">/ story</span></p>
+            </div>
             <p>Additional curated high-resolution vertical story moments edited in real-time.</p>
           </div>
 
@@ -482,6 +537,53 @@
       </div>
     </div>
   </footer>
+
+  <!-- UNLOCK PRICING MODAL (Date of Event & Phone Required) -->
+  <div id="unlock-pricing-modal" class="pricing-modal-overlay" aria-hidden="true" style="display: none;">
+    <div class="pricing-modal-backdrop" id="modal-backdrop"></div>
+    <div class="pricing-modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button type="button" class="pricing-modal-close" id="modal-close-btn" aria-label="Close Modal">&times;</button>
+      
+      <div class="pricing-modal-header">
+        <span class="modal-badge">✦ INSTANT ACCESS ✦</span>
+        <h3 id="modal-title" class="modal-title">UNLOCK WEDDING CHARGES</h3>
+        <p class="modal-sub">
+          Enter your event date &amp; WhatsApp number to immediately reveal full package pricing and transparent commercials.
+        </p>
+      </div>
+
+      <form id="unlock-pricing-form" class="unlock-form">
+        <div class="form-group">
+          <label for="unlock-couple-name">Your Name / Couple Names *</label>
+          <input type="text" id="unlock-couple-name" class="form-control" placeholder="e.g. Ananya &amp; Kabir" required>
+        </div>
+
+        <div class="form-row-dual">
+          <div class="form-group">
+            <label for="unlock-event-date">Date of Event *</label>
+            <input type="date" id="unlock-event-date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="unlock-phone">Phone / WhatsApp Number *</label>
+            <input type="tel" id="unlock-phone" class="form-control" placeholder="e.g. 9876543210" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="unlock-city">Wedding City / Destination</label>
+          <input type="text" id="unlock-city" class="form-control" placeholder="e.g. Udaipur / Kolkata / Delhi">
+        </div>
+
+        <input type="hidden" id="unlock-target-package" value="">
+
+        <button type="submit" class="modal-submit-btn">
+          UNLOCK ALL PACKAGE CHARGES NOW <span>→</span>
+        </button>
+
+        <p class="modal-privacy-note">🔒 Zero spam. We strictly check wedding date availability and reveal exact commercials.</p>
+      </form>
+    </div>
+  </div>
 
   <!-- Floating Always-Visible Right Edge WhatsApp Trigger -->
   <a href="https://wa.me/916289831240?text=Namaste%20Gajar%20Halwa!%20I%20would%20like%20to%20inquire%20about%20wedding%20socials%20coverage."
