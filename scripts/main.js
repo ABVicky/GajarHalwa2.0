@@ -122,21 +122,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // In-memory unlocked set for current page view only (resets on refresh)
+  const activeUnlockedPackages = new Set();
+
   function getUnlockedPackages() {
-    try {
-      const saved = localStorage.getItem('gh_unlocked_packages');
-      return saved ? JSON.parse(saved) : [];
-    } catch (e) {
-      return [];
-    }
+    return Array.from(activeUnlockedPackages);
   }
 
   function saveUnlockedPackage(pkgKey) {
-    const list = getUnlockedPackages();
-    if (!list.includes(pkgKey)) {
-      list.push(pkgKey);
-      localStorage.setItem('gh_unlocked_packages', JSON.stringify(list));
-    }
+    activeUnlockedPackages.add(pkgKey);
   }
 
   function openUnlockModal(targetPackage = '', targetPackageName = '') {
@@ -264,20 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (sectionId) {
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
       }
-    });
-  }
-
-  // Restore previously unlocked packages for returning user
-  const savedUnlocked = getUnlockedPackages();
-  if (savedUnlocked.length > 0) {
-    const savedData = {
-      name: localStorage.getItem('gh_client_name') || 'Valued Guest',
-      phone: localStorage.getItem('gh_client_phone') || '',
-      date: localStorage.getItem('gh_client_date') || 'Upcoming Date',
-      city: localStorage.getItem('gh_client_city') || 'India'
-    };
-    savedUnlocked.forEach(pkgKey => {
-      unlockSinglePackage(pkgKey, savedData);
     });
   }
 
