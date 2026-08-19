@@ -89,21 +89,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Gated Package Pricing & Unlock Manager (packages.html)
+  // 5. Gated Package Pricing & Single Package Unlock Manager (packages.html)
   const unlockModal = document.getElementById('unlock-pricing-modal');
   const unlockForm = document.getElementById('unlock-pricing-form');
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const modalBackdrop = document.getElementById('modal-backdrop');
+  const modalPackageNameEl = document.getElementById('modal-package-name');
   const unlockedBanner = document.getElementById('pricing-unlocked-banner');
   const unlockedInfoSpan = document.getElementById('unlocked-event-info');
   const changeDateBtn = document.getElementById('btn-change-date');
   const unlockTargetPackageInput = document.getElementById('unlock-target-package');
 
-  function openUnlockModal(targetPackage = '') {
+  // Package registry mapping
+  const packageMeta = {
+    'halwa-bite': {
+      index: 1,
+      name: 'The Halwa Bite (Silver)',
+      price: '₹11,001 + GST',
+      sectionId: 'halwa-bite'
+    },
+    'kesariya-jalebi': {
+      index: 2,
+      name: 'The Kesariya Jalebi (Gold)',
+      price: '₹21,001 + GST',
+      sectionId: 'kesariya-jalebi'
+    },
+    'shahi-tukda': {
+      index: 3,
+      name: 'The Shahi Tukda (Platinum)',
+      price: '₹51,001 + GST',
+      sectionId: 'shahi-tukda'
+    }
+  };
+
+  function getUnlockedPackages() {
+    try {
+      const saved = localStorage.getItem('gh_unlocked_packages');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveUnlockedPackage(pkgKey) {
+    const list = getUnlockedPackages();
+    if (!list.includes(pkgKey)) {
+      list.push(pkgKey);
+      localStorage.setItem('gh_unlocked_packages', JSON.stringify(list));
+    }
+  }
+
+  function openUnlockModal(targetPackage = '', targetPackageName = '') {
     if (!unlockModal) return;
     if (unlockTargetPackageInput) {
       unlockTargetPackageInput.value = targetPackage;
     }
+    if (modalPackageNameEl) {
+      modalPackageNameEl.textContent = targetPackageName || (packageMeta[targetPackage]?.name || 'Selected Collection');
+    }
+
     // Pre-fill existing user info if available
     const savedName = localStorage.getItem('gh_client_name') || '';
     const savedPhone = localStorage.getItem('gh_client_phone') || '';
@@ -132,48 +176,35 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  function revealAllPricing(userData) {
-    const { name, phone, date, city } = userData;
+  function unlockSinglePackage(pkgKey, userData) {
+    const meta = packageMeta[pkgKey];
+    if (!meta) return;
 
-    // Show unlocked banner
+    const { name, phone, date, city } = userData;
+    const idx = meta.index;
+
+    // Reveal specific price view & hide locked view for this package only
+    const priceLocked = document.getElementById(`price-locked-${idx}`);
+    const priceRevealed = document.getElementById(`price-revealed-${idx}`);
+    if (priceLocked) priceLocked.style.display = 'none';
+    if (priceRevealed) priceRevealed.style.display = 'flex';
+
+    // Switch action button to WhatsApp booking for this package only
+    const actionLock = document.getElementById(`action-lock-${idx}`);
+    const actionBook = document.getElementById(`btn-book-${idx}`);
+    if (actionLock) actionLock.style.display = 'none';
+    if (actionBook) {
+      actionBook.style.display = 'inline-flex';
+      const msg = `Namaste Gajar Halwa! We are ${name} (Ph: ${phone}). Planning our wedding on ${date} in ${city || 'India'}. We want to book Collection 0${idx}: ${meta.name} (${meta.price}). Please share availability!`;
+      actionBook.href = `https://wa.me/916289831240?text=${encodeURIComponent(msg)}`;
+    }
+
+    // Update banner
+    const unlockedList = getUnlockedPackages();
     if (unlockedBanner && unlockedInfoSpan) {
       unlockedBanner.style.display = 'flex';
-      unlockedInfoSpan.innerHTML = `<strong>${date}</strong> (${city || 'India'}) • Couple: <strong>${name}</strong>`;
-    }
-
-    // Reveal price tags on all 3 packages
-    document.querySelectorAll('.price-locked-view').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.price-revealed-view').forEach(el => el.style.display = 'flex');
-
-    // Reveal add-on price tags
-    document.querySelectorAll('.addon-price-locked').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.addon-price-revealed').forEach(el => el.style.display = 'block');
-
-    // Switch action buttons from Unlock to Direct WhatsApp Booking
-    document.querySelectorAll('.action-btn-locked').forEach(el => el.style.display = 'none');
-    
-    // Package 1: The Halwa Bite (Silver)
-    const btn1 = document.getElementById('btn-book-1');
-    if (btn1) {
-      btn1.style.display = 'inline-flex';
-      const msg1 = `Namaste Gajar Halwa! We are ${name} (Ph: ${phone}). Planning our wedding on ${date} in ${city || 'India'}. We want to book Collection 01: THE HALWA BITE (₹11,001 + GST). Please share availability!`;
-      btn1.href = `https://wa.me/916289831240?text=${encodeURIComponent(msg1)}`;
-    }
-
-    // Package 2: The Kesariya Jalebi (Gold)
-    const btn2 = document.getElementById('btn-book-2');
-    if (btn2) {
-      btn2.style.display = 'inline-flex';
-      const msg2 = `Namaste Gajar Halwa! We are ${name} (Ph: ${phone}). Planning our wedding on ${date} in ${city || 'India'}. We want to book Collection 02: THE KESARIYA JALEBI (₹21,001 + GST). Please share availability!`;
-      btn2.href = `https://wa.me/916289831240?text=${encodeURIComponent(msg2)}`;
-    }
-
-    // Package 3: The Shahi Tukda (Platinum)
-    const btn3 = document.getElementById('btn-book-3');
-    if (btn3) {
-      btn3.style.display = 'inline-flex';
-      const msg3 = `Namaste Gajar Halwa! We are ${name} (Ph: ${phone}). Planning our wedding on ${date} in ${city || 'India'}. We want to book Collection 03: THE SHAHI TUKDA (₹51,001 + GST). Please share availability!`;
-      btn3.href = `https://wa.me/916289831240?text=${encodeURIComponent(msg3)}`;
+      const unlockedNames = unlockedList.map(k => packageMeta[k]?.name || k).join(', ');
+      unlockedInfoSpan.innerHTML = `<strong>${date}</strong> (${city || 'India'}) • Unlocked: <strong>${unlockedNames || meta.name}</strong>`;
     }
   }
 
@@ -182,13 +213,17 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetPkg = btn.getAttribute('data-package') || '';
-      openUnlockModal(targetPkg);
+      const targetName = btn.getAttribute('data-package-name') || '';
+      openUnlockModal(targetPkg, targetName);
     });
   });
 
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeUnlockModal);
   if (modalBackdrop) modalBackdrop.addEventListener('click', closeUnlockModal);
-  if (changeDateBtn) changeDateBtn.addEventListener('click', () => openUnlockModal());
+  if (changeDateBtn) changeDateBtn.addEventListener('click', () => {
+    const list = getUnlockedPackages();
+    openUnlockModal(list[0] || 'halwa-bite', packageMeta[list[0]]?.name || '');
+  });
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
@@ -197,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Handle Unlock Form Submit
+  // Handle Unlock Form Submit (Unlocks ONLY the requested package)
   if (unlockForm) {
     unlockForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -206,46 +241,44 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('unlock-phone')?.value.trim();
       const date = document.getElementById('unlock-event-date')?.value;
       const city = document.getElementById('unlock-city')?.value.trim() || 'India';
-      const targetPackage = document.getElementById('unlock-target-package')?.value || '';
+      let targetPackage = document.getElementById('unlock-target-package')?.value || 'halwa-bite';
 
       if (!name || !phone || !date) {
-        alert('Please fill in your Name, Event Date, and Phone number to unlock package charges.');
+        alert('Please fill in your Name, Event Date, and Phone number to view package charges.');
         return;
       }
 
-      // Save lead information
-      localStorage.setItem('gh_pricing_unlocked', 'true');
+      // Save user lead information
       localStorage.setItem('gh_client_name', name);
       localStorage.setItem('gh_client_phone', phone);
       localStorage.setItem('gh_client_date', date);
       localStorage.setItem('gh_client_city', city);
 
-      // Reveal all pricing
-      revealAllPricing({ name, phone, date, city });
+      // Save and unlock ONLY this specific package
+      saveUnlockedPackage(targetPackage);
+      unlockSinglePackage(targetPackage, { name, phone, date, city });
       closeUnlockModal();
 
-      // Scroll smoothly to target package if specified
-      if (targetPackage.includes('Halwa Bite') || targetPackage.includes('Silver')) {
-        document.getElementById('halwa-bite')?.scrollIntoView({ behavior: 'smooth' });
-      } else if (targetPackage.includes('Kesariya') || targetPackage.includes('Gold')) {
-        document.getElementById('kesariya-jalebi')?.scrollIntoView({ behavior: 'smooth' });
-      } else if (targetPackage.includes('Shahi') || targetPackage.includes('Platinum')) {
-        document.getElementById('shahi-tukda')?.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        unlockedBanner?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Smoothly scroll to the unlocked package section
+      const sectionId = packageMeta[targetPackage]?.sectionId;
+      if (sectionId) {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
       }
     });
   }
 
-  // Check if pricing was already unlocked in this browser
-  if (localStorage.getItem('gh_pricing_unlocked') === 'true') {
+  // Restore previously unlocked packages for returning user
+  const savedUnlocked = getUnlockedPackages();
+  if (savedUnlocked.length > 0) {
     const savedData = {
       name: localStorage.getItem('gh_client_name') || 'Valued Guest',
       phone: localStorage.getItem('gh_client_phone') || '',
       date: localStorage.getItem('gh_client_date') || 'Upcoming Date',
       city: localStorage.getItem('gh_client_city') || 'India'
     };
-    revealAllPricing(savedData);
+    savedUnlocked.forEach(pkgKey => {
+      unlockSinglePackage(pkgKey, savedData);
+    });
   }
 
   // 6. Intersection Observer for Subtle Reveals

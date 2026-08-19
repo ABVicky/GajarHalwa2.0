@@ -104,15 +104,11 @@
             <span class="package-num-tag">COLLECTION 01 / SILVER</span>
             <h2 class="package-name">THE HALWA BITE</h2>
 
-            <div class="package-ideal-badge">
-              IDEAL FOR: INTIMATE WEDDINGS OR PRE-WEDDING FUNCTIONS
-            </div>
-
             <!-- Gated Price Row -->
             <div class="package-price-row">
               <div class="price-locked-view" id="price-locked-1">
                 <span class="price-locked-tag">🔒 PRICING ON REQUEST</span>
-                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="The Halwa Bite (Silver)">
+                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="halwa-bite" data-package-name="The Halwa Bite (Silver)">
                   VIEW CHARGES <span>→</span>
                 </button>
               </div>
@@ -147,7 +143,7 @@
             </ul>
 
             <div class="package-action-row">
-              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" data-package="The Halwa Bite (Silver)">
+              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" id="action-lock-1" data-package="halwa-bite" data-package-name="The Halwa Bite (Silver)">
                 UNLOCK CHARGES FOR YOUR DATE <span>→</span>
               </button>
               <a href="https://wa.me/916289831240" class="btn-book-package action-btn-revealed" id="btn-book-1" style="display: none;" target="_blank" rel="noopener noreferrer">
@@ -186,15 +182,11 @@
             <span class="package-num-tag" style="background-color: var(--deep-red); color: var(--warm-cream);">COLLECTION 02 / GOLD SIGNATURE</span>
             <h2 class="package-name">THE KESARIYA JALEBI</h2>
 
-            <div class="package-ideal-badge" style="border-color: var(--deep-red);">
-              IDEAL FOR: FULL WEDDING WEEKENDS / 2-DAY COVERAGE
-            </div>
-
             <!-- Gated Price Row -->
             <div class="package-price-row">
               <div class="price-locked-view" id="price-locked-2">
                 <span class="price-locked-tag" style="color: var(--deep-red); border-color: var(--deep-red);">🔒 PRICING ON REQUEST</span>
-                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="The Kesariya Jalebi (Gold)" style="background: var(--deep-red); color: var(--warm-cream); border-color: var(--deep-red);">
+                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="kesariya-jalebi" data-package-name="The Kesariya Jalebi (Gold)" style="background: var(--deep-red); color: var(--warm-cream); border-color: var(--deep-red);">
                   VIEW CHARGES <span>→</span>
                 </button>
               </div>
@@ -233,7 +225,7 @@
             </ul>
 
             <div class="package-action-row">
-              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" data-package="The Kesariya Jalebi (Gold)" style="background: var(--deep-red); color: var(--warm-cream);">
+              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" id="action-lock-2" data-package="kesariya-jalebi" data-package-name="The Kesariya Jalebi (Gold)" style="background: var(--deep-red); color: var(--warm-cream);">
                 UNLOCK CHARGES FOR YOUR DATE <span>→</span>
               </button>
               <a href="https://wa.me/916289831240" class="btn-book-package action-btn-revealed" id="btn-book-2" style="display: none; background: var(--deep-red); color: var(--warm-cream);" target="_blank" rel="noopener noreferrer">
@@ -254,15 +246,11 @@
             <span class="package-num-tag">COLLECTION 03 / PLATINUM BESPOKE</span>
             <h2 class="package-name">THE SHAHI TUKDA</h2>
 
-            <div class="package-ideal-badge">
-              IDEAL FOR: DESTINATION OR HIGH-CONTENT WEDDINGS WANTING MAXIMUM SOCIAL BUZZ
-            </div>
-
             <!-- Gated Price Row -->
             <div class="package-price-row">
               <div class="price-locked-view" id="price-locked-3">
                 <span class="price-locked-tag">🔒 PRICING ON REQUEST</span>
-                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="The Shahi Tukda (Platinum)">
+                <button type="button" class="btn-unlock-inline btn-trigger-unlock" data-package="shahi-tukda" data-package-name="The Shahi Tukda (Platinum)">
                   VIEW CHARGES <span>→</span>
                 </button>
               </div>
@@ -305,7 +293,7 @@
             </ul>
 
             <div class="package-action-row">
-              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" data-package="The Shahi Tukda (Platinum)">
+              <button type="button" class="btn-book-package btn-trigger-unlock action-btn-locked" id="action-lock-3" data-package="shahi-tukda" data-package-name="The Shahi Tukda (Platinum)">
                 UNLOCK CHARGES FOR YOUR DATE <span>→</span>
               </button>
               <a href="https://wa.me/916289831240" class="btn-book-package action-btn-revealed" id="btn-book-3" style="display: none;" target="_blank" rel="noopener noreferrer">
@@ -546,9 +534,9 @@
       
       <div class="pricing-modal-header">
         <span class="modal-badge">✦ INSTANT ACCESS ✦</span>
-        <h3 id="modal-title" class="modal-title">UNLOCK WEDDING CHARGES</h3>
+        <h3 id="modal-title" class="modal-title">UNLOCK PACKAGE CHARGES</h3>
         <p class="modal-sub">
-          Enter your event date &amp; WhatsApp number to immediately reveal full package pricing and transparent commercials.
+          Enter your event date &amp; WhatsApp number to reveal the exact pricing for <strong id="modal-package-name" style="color: var(--deep-red); background: var(--warm-cream-dark); padding: 0.15rem 0.4rem; border-radius: 2px;">Selected Collection</strong>.
         </p>
       </div>
 
@@ -576,8 +564,8 @@
 
         <input type="hidden" id="unlock-target-package" value="">
 
-        <button type="submit" class="modal-submit-btn">
-          UNLOCK ALL PACKAGE CHARGES NOW <span>→</span>
+        <button type="submit" id="modal-submit-btn" class="modal-submit-btn">
+          UNLOCK PACKAGE CHARGES NOW <span>→</span>
         </button>
 
         <p class="modal-privacy-note">🔒 Zero spam. We strictly check wedding date availability and reveal exact commercials.</p>
